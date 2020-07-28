@@ -22,6 +22,18 @@
             <img :src="selectedCountry.flag">
         </div>
 
+        <form v-on:submit.prevent="saveFavouriteCountry">
+            <label for="favourite-country">Add your favourite Country:</label>
+            <!-- <input id="favourite-country" type="text" v-model="newFavouriteCountry" required /> -->
+            <select name="fav-countries" id="fav-countries" v-model="newFavouriteCountry">
+                <option v-for="country in countries" :value="country">{{ country.name }}</option>
+            </select> 
+            <input class="button" type="submit" value="Save favourite Country" />
+        </form> 
+
+        <ul>
+            <li v-for="country in favouriteCountries">{{country.name}}</li>
+        </ul>
     </div>
 </body>
 </html>

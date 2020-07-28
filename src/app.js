@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
         el: '#app',
         data: {
             countries: [],
-            selectedCountry: ''
+            selectedCountry: '',
+            favouriteCountries: [],
+            newFavouriteCountry: ''
         },
 
         mounted: function() {
@@ -24,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch("https://restcountries.eu/rest/v2/all")
                 .then(response => response.json())
                 .then(data => this.countries = data);
+            },
+
+            saveFavouriteCountry: function() {
+                return this.favouriteCountries.push(this.newFavouriteCountry);
             }
         }
     });
