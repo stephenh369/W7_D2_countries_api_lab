@@ -14,6 +14,13 @@
             <h2>Total population: {{ totalPopulation }}</h2>
         </header>
 
+        <div>
+            <select name="countries" id="countries" v-model="selectedCountry">
+                <option v-for="country in countries" :value="country">{{ country.name }}</option>
+            </select> 
+            <h3>{{selectedCountry.name}}</h3>
+            <img :src="selectedCountry.flag">
+        </div>
 
     </div>
 </body>
